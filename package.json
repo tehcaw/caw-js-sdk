@@ -1,0 +1,32 @@
+{
+  "name": "@cawmmunity/caw-js-sdk",
+  "version": "0.0.5",
+  "description": "A sdk to interact with the blockchain and CAW's Social Contracts",
+  "author": {
+    "name": "cawmmunity",
+    "url": "https://caw.is"
+  },
+  "license": "MIT",
+  "private": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "debug": "ts-node --esm src/index.ts",
+    "dev": "tsup --dts --watch",
+    "build": "rm -rf dist && tsup --dts",
+    "pub": "npm publish --access public"
+  },
+  "devDependencies": {
+    "tsup": "^7.1.0",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "ethers": "^6.6.7"
+  }
+}
