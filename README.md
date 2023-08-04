@@ -63,24 +63,24 @@ Alpha version of the SDK might suffer breaking changes
 ```ts
     import { CawNameMinterService, CawNamesService, MintableCawService, WalletBalanceService } from '@cawmmunity/caw-js-sdk/dist/services';
 
-    const provider  = // Your provider here
-    const signer    = // Your signer here
+    const provider  = {};// Your provider here
+    const signer    = {};// Your signer here
     const userName = 'cawmmunity';
 
 
-    const cawMinterContract = CawNameMinterService(provider, signer);
-    const mintableCawContract = MintableCawService(provider, signer);
+    const cawMinterContract = new CawNameMinterService(provider, signer);
+    const mintableCawContract = new MintableCawService(provider, signer);
 
     const costInCaw  = await cawMinterContract.getCostOfName(userName);
 
-    // Mint the amount of mCAW needed to mint a username
+    // Mint the amount of mCAW needed to mint a username (Only during tesnet)
     await minterContract.mintMCAW({
         amount: costInCaw,
         userAddress: walletAddress,
         onEmit: (m, e) => {...}
       });
 
-    // Approve the mCAW to be spent
+    // Approve the mCAW to be spent (Approve CAW tokens to be spent on mainnet)
     await mintableCawContract.approveMCAW({
       amount: costInCaw,
       onEmit: (m, e) => {...}
@@ -97,11 +97,11 @@ Alpha version of the SDK might suffer breaking changes
 ```ts
 
     const walletAddress = '0x...';
-    const fetchAvatar = true; // SVG Avatar
-    const provider = // Your provider here
-    const signer = // Your signer here
+    const fetchAvatar =true; // SVG Avatar
+    const provider = {};// Your provider here
+    const signer = {};// Your signer here
 
-    const cawNamesContract = CawNamesService(provider, signer)
+    const cawNamesContract = new CawNamesService(provider, signer)
     const usernames = await cawNamesContract.getTokens(walletAddress, fetchAvatar);
 ```
 

@@ -60,10 +60,14 @@ export class CawNamesService extends BaseContractService {
   }
 
   async getUserNameById(userId: BigInt): Promise<string> {
-    return this.contract!.usernames(userId);
+    return this.contract.usernames(userId);
   }
 
   async tokenIdByIndex(index: BigInt): Promise<BigInt> {
-    return this.contract!.tokenByIndex(index);
+    return this.contract.tokenByIndex(index);
+  }
+
+  async rewardMultiplier(): Promise<BigInt> {
+    return this.contract.rewardMultiplier();
   }
 }
